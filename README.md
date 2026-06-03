@@ -102,6 +102,17 @@ github-explorer/
 │   └── package.json
 └── README.md
 ```
+## Known Limitations & Honest Notes
+
+- **GitHub API rate limit** — without an API token, unauthenticated requests are limited to 60/hour. If the app returns a rate limit error, waiting a minute resolves it. Fix: add a GitHub token as an environment variable on the server.
+
+- **No persistence** — tasks reset on server restart since we use in-memory caching only. Fix: store data in SQLite or a JSON file.
+
+- **No pagination UI** — we fetch up to 100 repos from GitHub but don't paginate the display. For users with 100+ repos, some may be missing. Fix: implement load more button.
+
+- **Free tier cold starts** — the Render free tier spins down after inactivity, so the first request may take 30-60 seconds. Fix: upgrade to a paid tier or use a keep-alive ping.
+
+- **No loading skeleton** — currently shows a plain "Loading..." text. Fix: add skeleton cards for better UX.
 
 ## Next Steps
 - Add GitHub OAuth so users can search private repos
