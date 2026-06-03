@@ -115,8 +115,15 @@ github-explorer/
 - **No loading skeleton** — currently shows a plain "Loading..." text. Fix: add skeleton cards for better UX.
 
 ## Next Steps
-- Add GitHub OAuth so users can search private repos
-- Persist recently searched users to a database
-- Add a language breakdown chart per user
-- Write unit tests for the cache logic and API routes
-- Add pagination for users with 100+ repos
+
+### What I chose not to do (and why)
+- **Drag and drop reordering** — out of scope for a search/view app
+- **Recently searched persistence** — skipped to keep the backend stateless and simple
+- **Language breakdown chart** — would add with Recharts given more time
+- **Debounced search-as-you-type** — kept it explicit with a Search button for clarity
+
+### What I would build next
+- Add a GitHub token server-side to increase API rate limit from 60 to 5000 requests/hour
+- Add unit tests for the cache logic using Jest
+- Add skeleton loading cards instead of plain "Loading..." text
+- Add pagination for users with 100+ repositories
